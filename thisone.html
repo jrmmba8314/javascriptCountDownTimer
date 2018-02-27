@@ -14,11 +14,9 @@ function myCountDownTimer(TXTcountDownDate, counterText, endingText)
 {
    var countDownDate = moment(TXTcountDownDate, "MMM DD, YYYY hh:mm:ss a");
    var now = moment();
-
    var myOutput;
    var timeToEnd = moment.duration(countDownDate.diff(now));
    var distance  = timeToEnd;
-
    if (distance < 0) 
    {
        // If the count down is over, write some text 
@@ -43,8 +41,29 @@ function myCountDownTimer(TXTcountDownDate, counterText, endingText)
 	  
        // Output the result in an element with id="myDate"
        myOutput =
-       counterText + " at " + TXTcountDownDate + "<br>" +
-       years + "y " + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "<br>";
+       counterText + " at " + TXTcountDownDate + "<br>";
+	   if (years > 0)
+	   {
+	      myOutput = myOutput + years + "y "
+	   }
+	   
+	   if (years > 0 || days > 0)
+	   {
+	      myOutput = myOutput + days + "d "
+	   }
+	   
+	   if (years > 0 || days > 0 || hours > 0)
+	   {
+	      myOutput = myOutput + hours + "h "
+	   }
+	   
+	   if (years > 0 || days > 0 || hours > 0 || minutes > 0)
+	   {
+	      myOutput = myOutput + minutes + "m "
+	   }
+	   
+	   // seconds will allows be displayed
+	      myOutput = myOutput + seconds + "s"
    }
 	  
    return myOutput
@@ -53,7 +72,7 @@ function myCountDownTimer(TXTcountDownDate, counterText, endingText)
 // Update the count down every 1 second
 var x = setInterval(function()
 {
-   document.getElementById("myDate1").innerHTML = myCountDownTimer("Jun 15, 2018 02:35:00 PM", "Countdown to Graduation 2018", "Class of 2018 has GRADUATED!!!");
+   document.getElementById("myDate1").innerHTML = myCountDownTimer("Feb 27, 2018 02:59:00 PM", "Countdown to Graduation 2018", "Class of 2018 has GRADUATED!!!");
    document.getElementById("myDate2").innerHTML = myCountDownTimer("Jun 17, 2033 03:05:00 PM", "Countdown to Mr. Mitchell's Retirement", "Mr. Mitchell has RETIRED!!!");
    document.getElementById("Notes").innerHTML = "<br>If the hour calculation looks one off, it is not.  Think about calculations of Daylight Saving Time!<br>";
 }, 1000);
