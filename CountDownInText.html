@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://cybersecurity.portangelesschools.org/moment.js" type="text/javascript"></script>
+<script src="http://cybersecurity.portangelesschools.org/myCountDownTimer.js" type="text/javascript"></script>
+
+<p id="myDate1" style="font-size: large; color: green; text-align: center;"></p>
+<p id="myDate2" style="font-size: large; color: blue;  text-align: center;"></p>
+<p id="Notes"   style="font-size: small; color: black; text-align: center;"></p>
+</head>
+
+<body>
+<p>
+<script type="text/javascript">
+function myCountDownPrinter(TXTcountDownDate, counterText, endingText) 
+{
+   var timers = myCountDownTimer(TXTcountDownDate);
+   var myOutput = "";
+
+   if ((timers.years   +
+        timers.days    +
+    timers.hours   +
+    timers.minutes +
+    timers.seconds) <= 0)
+   {
+       // If the count down is over, write some text 
+       // clearInterval(x);
+       myOutput = endingText + "<br>";
+   }
+   else
+   {
+       myOutput = counterText + " at " + TXTcountDownDate + "<br>";
+       if (timers.years > 0)
+       {
+          myOutput = myOutput + timers.years + "y "
+       }
+   
+       if (timers.years > 0 || timers.days > 0)
+       {
+          myOutput = myOutput + timers.days + "d "
+       }
+   
+       if (timers.years > 0 || timers.days > 0 || timers.hours > 0)
+       {
+          myOutput = myOutput + timers.hours + "h "
+       }
+   
+       if (timers.years > 0 || timers.days > 0 || timers.hours > 0 || timers.minutes > 0)
+       {
+          myOutput = myOutput + timers.minutes + "m "
+       }
+   
+       // seconds will allows be displayed
+       myOutput = myOutput + timers.seconds + "s"
+   }
+  
+   return myOutput
+}
+   
+// Update the count down every 1 second
+var x = setInterval(function()
+{
+   // working with first timer
+   document.getElementById("myDate1").innerHTML = myCountDownPrinter("Jun 15, 2018 02:35:00 PM", "Countdown to Graduation 2018", "Class of 2018 has GRADUATED!!!");
+   document.getElementById("myDate2").innerHTML = myCountDownPrinter("Jun 17, 2033 03:05:00 PM", "Countdown to Mr. Mitchell's Retirement", "Mr. Mitchell has RETIRED!!!");
+   document.getElementById("Notes").innerHTML = "<br>If the hour calculation looks one off, it is not.  Think about calculations of Daylight Saving Time!<br>";
+}, 1000);
+</script>
+</p>
+</body>
+</html>
