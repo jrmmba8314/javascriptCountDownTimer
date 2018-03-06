@@ -15,27 +15,27 @@ function myCountDownTimer(TXTcountDownDate)
    var now = moment();
    var myTimers = {years:   0,
                    days:    0,
-				   hours:   0,
-				   minutes: 0,
-				   seconds: 0};
+                   hours:   0,
+                   minutes: 0,
+                   seconds: 0};
    var timeToEnd = moment.duration(countDownDate.diff(now));
    
    if (timeToEnd > 0)
    {
       myTimers.years = Math.floor(timeToEnd.asYears());
       timeToEnd.subtract(myTimers.years, 'years');
-	  
+  
       myTimers.days = Math.floor(timeToEnd.asDays());
       timeToEnd.subtract(myTimers.days, 'days');
-	  
+  
       myTimers.hours = Math.floor(timeToEnd.asHours());
       timeToEnd.subtract(myTimers.hours, 'hours');
-	  
+  
       myTimers.minutes = Math.floor(timeToEnd.asMinutes());
       timeToEnd.subtract(myTimers.minutes, 'minutes');
-	  
+  
       myTimers.seconds = Math.floor(timeToEnd.asSeconds());
-	}
+   }
 
    return myTimers;
 }
